@@ -1,0 +1,15 @@
+bind 0.0.0.0
+protected-mode no
+port ${REDIS_PORT}
+dir ${REDIS_DATA_DIR}
+
+# Empty string disables authentication
+requirepass "${REDIS_PASSWORD}"
+
+maxmemory ${REDIS_MAXMEMORY}
+maxmemory-policy ${REDIS_MAXMEMORY_POLICY}
+
+appendonly ${REDIS_APPENDONLY}
+appendfsync ${REDIS_APPENDFSYNC}
+
+save ${REDIS_SAVE}

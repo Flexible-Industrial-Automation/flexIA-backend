@@ -1,0 +1,23 @@
+services:
+  redis:
+    build: ./redis
+    container_name: flexia-redis
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "${REDIS_PORT:-6379}:${REDIS_PORT:-6379}"
+    volumes:
+      - ${REDIS_DATA_DIR:-./data/redis}:/data
+
+  mqtt:
+    build: ./mosquitto
+    container_name: flexia-mqtt
+    restart: unless-stopped
+    profiles: ["mqtt"]
+    env_file: .env
+    ports:
+      - "${MQTT_PORT:-1883}:${MQTT_PORT:-1883}"
+      - "${MQTT_WEBSOCKETS_PORT:-9001}:${MQTT_WEBSOCKETS_PORT:-9001}"
+    volumes:
+      - ${MQTT_DATA_DIR:-./data/mosquitto}:/mosquitto/data
+      - ${MQTT_LOG_DIR:-./logs/mosquitto}:/mosquitto/log

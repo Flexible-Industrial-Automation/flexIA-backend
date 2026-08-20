@@ -1,0 +1,17 @@
+listener ${MQTT_PORT}
+protocol mqtt
+
+listener ${MQTT_WEBSOCKETS_PORT}
+protocol websockets
+
+allow_anonymous ${MQTT_ALLOW_ANONYMOUS}
+password_file ${MQTT_PASSWORD_FILE}
+
+persistence ${MQTT_PERSISTENCE}
+persistence_location ${MQTT_PERSISTENCE_LOCATION}
+
+max_queued_messages ${MQTT_MAX_QUEUED_MESSAGES}
+max_keepalive ${MQTT_MAX_KEEPALIVE}
+
+log_dest stdout
+log_dest file ${MQTT_LOG_FILE}

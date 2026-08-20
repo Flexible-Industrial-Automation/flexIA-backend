@@ -1,0 +1,15 @@
+.env
+run/
+
+data/*
+!data/redis
+data/redis/*
+!data/redis/.gitkeep
+!data/mosquitto
+data/mosquitto/*
+!data/mosquitto/.gitkeep
+
+logs/*
+!logs/mosquitto
+logs/mosquitto/*
+!logs/mosquitto/.gitkeep
